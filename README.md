@@ -24,7 +24,7 @@
 ## Пример использования
 
 ```bash
-java -jar util.jar -o outputDir -p prefix_ -a -f file1.txt file2.txt
+java -jar util.jar -o outputDir -p prefix_ -a -f 1.txt 2.txt
 ```
 
 ## Используемые технологии
