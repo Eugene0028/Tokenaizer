@@ -3,6 +3,7 @@ package io.shift;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -24,8 +25,12 @@ public class ArgsChecker
         for (int i = 0; i < args.length; i++){
             switch (args[i].toLowerCase()){
                 case "-o": {
-                    if (i == args.length - 1 || !Files.isDirectory(Path.of(args[i + 1]))) {
+                    if (i == args.length - 1) {
                         throw new Exception("Problem with -o flag. Enter the directory!");
+                    }
+                    var p = Path.of(args[i + 1]);
+                    if (!Files.isDirectory(p)){
+                        Files.createDirectory(p);
                     }
                     O_FLAG = true;
                     path = args[++i];
